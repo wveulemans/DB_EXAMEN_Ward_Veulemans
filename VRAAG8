@@ -1,0 +1,15 @@
+UNF:	personeelsnummer, naam, geboortedatum, labocode, labonaam, projectcode, projectomschrijving, projectsupervisor
+
+1NF:	table_personeel:(personeelsnummer, naam, geboortedatum)
+		table_labo:(labocode, labonaam, projectcode, projectomschrijving, projectsupervisor)
+	keys(personeelsnummer, labocode)
+
+2NF:	table_personeel:(personeelsnummer, naam, geboortedatum, projectcode)
+		table_labo:(labocode, labonaam)
+		table_project:(projectcode, projectomschrijving, projectsupervisor, labocode) 
+	keys(personeelsnummer, labocode, projectcode)
+
+3NF:	table_personeel:(personeelsnummer, naam, geboortedatum, projectcode)
+		table_labo:(labocode, labonaam)
+		table_project:(projectcode, projectomschrijving, projectsupervisor, labocode)
+	keys(personeelsnummer, labocode, projectcode)
