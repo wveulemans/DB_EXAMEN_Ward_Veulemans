@@ -1,0 +1,9 @@
+
+ENSEMBL: danio rerio MYCN-gen ==> ENSDARG00000006837.8 Chromosome 20: 33,391,549-33,396,505
+
+curl 'https://rest.ensembl.org/sequence/region/danio_rerio/20:33,391,549..33,391,649?' -H 'Content-type:text/xml'
+<opt>
+  <data id="chromosome:GRCz10:20:33391549:33391649:1" molecule="dna" seq="TAGAATAATACTTCACAGCCCGAAACACAGAGGCGCAGAACAGTCTTCAGTCGCCGCGGTAGATGTGCGACTCCAAACGGGAGGCACAGTGACTGCGATAA" />
+</opt>
+
+
