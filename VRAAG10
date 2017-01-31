@@ -1,0 +1,33 @@
+mysql> SELECT gene_name, (seq_region_end-seq_region_start+1) as length FROM gene ORDER BY length DESC LIMIT 1;
++-----------+---------+
+| gene_name | length  |
++-----------+---------+
+| TMPRSS3   | 5379014 |
++-----------+---------+
+
+mysql> SELECT gene_name, count(transcript_id) as tellen FROM gene JOIN transcript ON gene.gene_id = transcript.gene_id GROUP BY gene_name ORDER BY count(transcript_id) DESC LIMIT 1 ;
++-----------+--------+
+| gene_name | tellen |
++-----------+--------+
+| U6        |   1329 |
++-----------+--------+
+
+mysql> SELECT chromosome, count(exon_id) FROM gene JOIN transcript ON gene.gene_id = transcript.gene_id JOIN exon_transcript ON transcript.transcript_id = exon_transcript.transcript_id 
+WHERE description like "%cancer%" GROUP BY chromosome ORDER BY count(exon_id) DESC OFFSET 1;
+
+
+mysql> SELECT count(exon_id) FROM exon;
++----------------+
+| count(exon_id) |
++----------------+
+|         642590 |
++----------------+
+
+mysql> SELECT count(exon_id) FROM exon_transcript;
++----------------+
+| count(exon_id) |
++----------------+
+|        1178393 |
++----------------+
+
+Omdat sommige transcript_id's meerdere exon_id's kunnen hebben. Hierdoor hebben we er meer rijen in de exon_transcript tabel dan in de exon tabel.
